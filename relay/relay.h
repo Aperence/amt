@@ -37,6 +37,7 @@
 #ifndef AMT_RELAY_RELAY_H
 #define AMT_RELAY_RELAY_H
 
+#include <stdlib.h>
 #include <stdint.h>
 #include <sys/queue.h>
 #include <event.h>
@@ -353,8 +354,7 @@ void relay_raw_socket_init(relay_instance* instance);
 
 #define exit(x) do { \
     fprintf(stderr, "exit(%d): %s:%d\n", x, __FILE__, __LINE__); \
-    char* c = 0; \
-    sprintf(c, "time to crash please"); \
+    exit(x); \
 } while(0)
 
 #endif // AMT_RELAY_RELAY_H
